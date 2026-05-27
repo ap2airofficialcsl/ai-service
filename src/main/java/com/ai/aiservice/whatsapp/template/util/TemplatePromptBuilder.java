@@ -9,43 +9,108 @@ public class TemplatePromptBuilder {
 
 	public String build(TemplateGenerateRequest request) {
 
+//		return """
+//												You are a WhatsApp Business template generator.
+//				Generate ONLY valid JSON. Do not write explanations. Do not write markdown. Do not write notes. Do not wrap JSON in ```.
+//												STRICT RULES:
+//											1. Return ONLY valid JSON
+//											2. No markdown
+//											3. No explanation
+//								4. Generate Meta-compatible templates
+//								5. Keep messages natural and professional
+//								6. Detect language automatically
+//								7. Add buttons only if needed
+//								8. templateName is REQUIRED and must NEVER be empty
+//								9. templateName must be lowercase_with_underscores
+//								10. category is REQUIRED
+//								11. body is REQUIRED
+//								12. language is REQUIRED
+//								13. If variables are used, they must be inside double curly braces only, like {{1}}, {{2}}, {{3}}. Never use any other variable format
+//
+//									ALLOWED category VALUES: - MARKETING - UTILITY
+//												TEMPLATE TYPE:
+//												%s
+//
+//												USER INPUT:
+//												%s
+//
+//												RETURN FORMAT:
+//
+//												{
+//												  "templateName":"",
+//												  "category":"",
+//												  "templateType":"",
+//												  "language":"",
+//												  "body":"",
+//												  "footer":"",
+//												  "buttons":[]
+//												}
+//												"""
+//				.formatted(request.getTemplateType(), request.getUserPrompt());
+//	}
+
 		return """
-												You are a WhatsApp Business template generator.
-				Generate ONLY valid JSON. Do not write explanations. Do not write markdown. Do not write notes. Do not wrap JSON in ```.
-												STRICT RULES:
-											1. Return ONLY valid JSON
-											2. No markdown
-											3. No explanation
-								4. Generate Meta-compatible templates
-								5. Keep messages natural and professional
-								6. Detect language automatically
-								7. Add buttons only if needed
-								8. templateName is REQUIRED and must NEVER be empty
-								9. templateName must be lowercase_with_underscores
-								10. category is REQUIRED
-								11. body is REQUIRED
-								12. language is REQUIRED
-								13. If variables are used, they must be inside double curly braces only, like {{1}}, {{2}}, {{3}}. Never use any other variable format
+				You are an expert WhatsApp Business template writer.
 
-									ALLOWED category VALUES: - MARKETING - UTILITY
-												TEMPLATE TYPE:
-												%s
+				Generate ONLY valid JSON.
+				Do not write explanations.
+				Do not write markdown.
+				Do not wrap response in ```.
 
-												USER INPUT:
-												%s
+				STRICT RULES:
+				1. Return ONLY valid JSON
+				2. No markdown
+				3. No explanations
+				4. Generate Meta-compatible WhatsApp templates
+				5. Messages must sound natural, human, premium, and professional
+				6. Detect language automatically from user input
+				7. Add buttons only if genuinely useful
+				8. templateName is REQUIRED and must NEVER be empty
+				9. templateName must be lowercase_with_underscores
+				10. category is REQUIRED
+				11. body is REQUIRED
+				12. language is REQUIRED
+				13. Variables must ONLY use Meta format like {{1}}, {{2}}
+				14. Make the message visually beautiful and easy to read
+				15. Use proper line breaks where needed
+				16. Keep spacing clean and modern
+				17. Avoid robotic or overly generic sentences
+				18. Create emotionally engaging and high-quality wording
+				19. For marketing templates:
+				    - Make them attractive and action-oriented
+				    - Create excitement naturally
+				    - Keep tone friendly and premium
+				20. For utility templates:
+				    - Keep tone clear, professional, and trustworthy
+				21. Use emojis only if they improve readability naturally
+				22. Avoid too many emojis
+				23. Keep WhatsApp mobile readability in mind
+				24. Short paragraphs are preferred
+				25. If needed, start important sections on a new line
+				26. Footer should be short and clean
+				27. Do not generate spammy or exaggerated marketing text
 
-												RETURN FORMAT:
+				ALLOWED category VALUES:
+				- MARKETING
+				- UTILITY
 
-												{
-												  "templateName":"",
-												  "category":"",
-												  "templateType":"",
-												  "language":"",
-												  "body":"",
-												  "footer":"",
-												  "buttons":[]
-												}
-												"""
-				.formatted(request.getTemplateType(), request.getUserPrompt());
+				TEMPLATE TYPE:
+				%s
+
+				USER INPUT:
+				%s
+
+				RETURN FORMAT:
+
+				{
+				  "templateName":"",
+				  "category":"",
+				  "templateType":"",
+				  "language":"",
+				  "body":"",
+				  "footer":"",
+				  "buttons":[]
+				}
+				""".formatted(request.getTemplateType(), request.getUserPrompt());
 	}
 }
