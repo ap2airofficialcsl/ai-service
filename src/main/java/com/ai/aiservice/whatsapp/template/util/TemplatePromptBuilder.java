@@ -67,35 +67,32 @@ public class TemplatePromptBuilder {
 				7. Add buttons only if genuinely useful
 				8. templateName is REQUIRED and must NEVER be empty
 				9. templateName must be lowercase_with_underscores
-				10. category is REQUIRED
-				11. body is REQUIRED
-				12. language is REQUIRED
+				10. body is REQUIRED
+				11. language is REQUIRED
+				12. templateType is REQUIRED
 				13. Variables must ONLY use Meta format like {{1}}, {{2}}
-				14. Make the message visually beautiful and easy to read
+				14. Make messages visually beautiful and easy to read
 				15. Use proper line breaks where needed
 				16. Keep spacing clean and modern
-				17. Avoid robotic or overly generic sentences
-				18. Create emotionally engaging and high-quality wording
-				19. For marketing templates:
-				    - Make them attractive and action-oriented
-				    - Create excitement naturally
-				    - Keep tone friendly and premium
-				20. For utility templates:
-				    - Keep tone clear, professional, and trustworthy
+				17. Avoid robotic or generic wording
+				18. Create emotionally engaging and premium wording
+				19. Keep WhatsApp mobile readability in mind
+				20. Short paragraphs are preferred
 				21. Use emojis only if they improve readability naturally
-				22. Avoid too many emojis
-				23. Keep WhatsApp mobile readability in mind
-				24. Short paragraphs are preferred
-				25. If needed, start important sections on a new line
-				26. Footer should be short and clean
-				27. Do not generate spammy or exaggerated marketing text
+				22. Footer should be short and clean
+				23. Never generate spammy or exaggerated text
 
-				ALLOWED category VALUES:
+				TEMPLATE TYPE RULES:
+				Allowed values:
 				- MARKETING
 				- UTILITY
+				- AUTHENTICATION
 
-				TEMPLATE TYPE:
+				REQUESTED TEMPLATE TYPE:
 				%s
+
+				IMPORTANT:
+				You MUST use the EXACT same value above in "templateType".
 
 				USER INPUT:
 				%s
@@ -104,7 +101,6 @@ public class TemplatePromptBuilder {
 
 				{
 				  "templateName":"",
-				  "category":"",
 				  "templateType":"",
 				  "language":"",
 				  "body":"",
