@@ -1,7 +1,7 @@
 whatsapp:
   template:
     ai:
-      primary-provider: openrouter
-      fallback-provider: groq
+      primary-provider: groq
+      fallback-provider: openrouter
       groq-model: qwen/qwen3-32b
       openrouter-model: google/gemma-3-27b-it:free
