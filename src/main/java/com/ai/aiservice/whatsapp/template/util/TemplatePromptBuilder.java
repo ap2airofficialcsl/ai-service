@@ -69,7 +69,7 @@ public class TemplatePromptBuilder {
 				12. Avoid robotic or generic wording
 				13. Create emotionally engaging and premium wording
 				14. Use emojis only if they improve readability naturally
-				
+				15. The body must start with a professional opening line or greeting and use proper paragraph spacing, line breaks, and formatting to make the template visually clean and premium on WhatsApp
 				
 
 				TEMPLATE TYPE RULES:
