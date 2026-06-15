@@ -13,5 +13,5 @@ public class AiRequest {
 
     private Double temperature = 0.7;
 
-    private Integer maxTokens = 300;
+    private Integer maxTokens = 400;
 }

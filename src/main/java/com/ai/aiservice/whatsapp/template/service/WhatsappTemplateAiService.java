@@ -50,7 +50,9 @@ public class WhatsappTemplateAiService {
 		try {
 
 			String cleanJson = jsonExtractor.extract(aiResponse.getContent());
-
+			System.out.println("============== AI RESPONSE ==============");
+			System.out.println(cleanJson);
+			System.out.println("=========================================");
 			TemplateGenerateResponse response = objectMapper.readValue(cleanJson, TemplateGenerateResponse.class);
 
 			response.setRawJson(cleanJson);
