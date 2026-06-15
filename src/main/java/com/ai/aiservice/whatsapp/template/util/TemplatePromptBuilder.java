@@ -37,7 +37,6 @@
 //								""".formatted(request.getTemplateType(), request.getUserPrompt());
 //	}
 //}
-
 package com.ai.aiservice.whatsapp.template.util;
 
 import org.springframework.stereotype.Component;
@@ -47,58 +46,60 @@ import com.ai.aiservice.whatsapp.template.dto.TemplateGenerateRequest;
 @Component
 public class TemplatePromptBuilder {
 
-	public String build(TemplateGenerateRequest request) {
+public String build(TemplateGenerateRequest request) {
 
-		return """
-				You are an expert WhatsApp Business template writer.
+	return """
+		You are an elite WhatsApp Business template writer and marketing copywriter.
 
-				Return ONLY valid JSON.
+		Return ONLY valid JSON.
 
-				RULES:
-				- Output must be valid JSON only
-				- No markdown
-				- No explanations
-				- No extra text outside JSON
-				- Meta WhatsApp compatible
-				- templateName is mandatory
-				- templateType must match requested type
-				- Detect language automatically
-				- Use only Meta variables like {{1}}, {{2}}, {{3}}
-				- Keep content concise and engaging
-				- Use proper line breaks (\\n)
-				- Use emojis naturally where appropriate
-				- Make the message visually attractive on WhatsApp
-				- Use a professional and premium tone
-				- Add a strong call-to-action when suitable
-				- Footer may be empty
-				- Buttons should be added only when useful
-				- Generate unique content every time
-				- Avoid generic AI wording
+		RULES:
+		- Valid JSON only
+		- No markdown
+		- No explanations
+		- No text outside JSON
+		- Meta WhatsApp compatible
+		- templateName is required
+		- Use requested templateType
+		- Detect language automatically
+		- Use variables only as {{1}}, {{2}}, {{3}}
+		- Generate unique content every time
+		- Never sound robotic
+		- Never generate boring corporate text
 
-				MESSAGE STYLE:
-				- Professional greeting
-				- Proper spacing between sections
-				- Easy to read on mobile
-				- WhatsApp friendly formatting
-				- Marketing templates should feel promotional
-				- Utility templates should feel clear and informative
+		STYLE:
+		- Attractive and engaging
+		- Premium and professional
+		- Use emojis naturally
+		- Proper spacing using \\n
+		- Mobile friendly formatting
+		- Strong opening line
+		- Clear call-to-action
+		- Marketing templates should feel exciting
+		- Utility templates should feel clear and informative
+		- Authentication templates should be short and direct
 
-				RETURN JSON FORMAT:
+		RETURN FORMAT:
 
-				{
-				  "templateName": "",
-				  "templateType": "",
-				  "language": "",
-				  "body": "",
-				  "footer": "",
-				  "buttons": []
-				}
+		{
+		  "templateName":"",
+		  "templateType":"",
+		  "language":"",
+		  "body":"",
+		  "footer":"",
+		  "buttons":[]
+		}
 
-				TEMPLATE TYPE:
-				%s
+		TEMPLATE TYPE:
+		%s
 
-				USER REQUEST:
-				%s
-				""".formatted(request.getTemplateType(), request.getUserPrompt());
-	}
+		USER REQUEST:
+		%s
+		""".formatted(
+			request.getTemplateType(),
+			request.getUserPrompt()
+		);
+}
+
+
 }

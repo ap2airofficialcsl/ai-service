@@ -3,7 +3,5 @@ whatsapp:
     ai:
       primary-provider: groq
       fallback-provider: openrouter
-
-      groq-model: meta-llama/llama-4-scout-17b-16e-instruct
-
-      openrouter-model: google/gemini-2.0-flash-001
+      groq-model: llama-3.3-70b-versatile
+      openrouter-model: google/gemma-3-27b-it:free
