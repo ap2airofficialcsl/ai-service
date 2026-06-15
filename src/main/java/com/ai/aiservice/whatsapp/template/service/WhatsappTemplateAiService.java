@@ -65,48 +65,49 @@ public class WhatsappTemplateAiService {
 		}
 	}
 
+//	private AiResponse tryPrimaryProvider(String prompt) {
+//
+//		try {
+//
+//			AiRequest request = new AiRequest();
+//
+//			request.setProvider(properties.getPrimaryProvider());
+//
+//			request.setModel(properties.getGroqModel());
+//
+//			request.setPrompt(prompt);
+//
+//			return aiService.ask(request);
+//
+//		}catch (Exception e) {
+//
+//		    e.printStackTrace();
+//
+//		    throw new RuntimeException("Primary provider failed", e);
+//		}
+//	}
+	
+	
 	private AiResponse tryPrimaryProvider(String prompt) {
 
-		try {
+	    AiRequest request = new AiRequest();
 
-			AiRequest request = new AiRequest();
+	    request.setProvider(properties.getPrimaryProvider());
+	    request.setModel(properties.getOpenrouterModel());
+	    request.setPrompt(prompt);
 
-			request.setProvider(properties.getPrimaryProvider());
-
-			request.setModel(properties.getGroqModel());
-
-			request.setPrompt(prompt);
-
-			return aiService.ask(request);
-
-		}catch (Exception e) {
-
-		    e.printStackTrace();
-
-		    throw new RuntimeException("Primary provider failed", e);
-		}
+	    return aiService.ask(request);
 	}
 
 	private AiResponse tryFallbackProvider(String prompt) {
 
-		try {
+	    AiRequest request = new AiRequest();
 
-			AiRequest request = new AiRequest();
+	    request.setProvider(properties.getFallbackProvider());
+	    request.setModel(properties.getGroqModel());
+	    request.setPrompt(prompt);
 
-			request.setProvider(properties.getFallbackProvider());
-
-			request.setModel(properties.getOpenrouterModel());
-
-			request.setPrompt(prompt);
-
-			return aiService.ask(request);
-
-		} catch (Exception e) {
-
-		    e.printStackTrace();
-
-		    throw new RuntimeException("Fallback provider failed", e);
-		}
+	    return aiService.ask(request);
 	}
 
 	private boolean isValid(AiResponse response) {
